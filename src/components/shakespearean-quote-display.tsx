@@ -7,6 +7,7 @@ import { generateShakespeareanQuote, type ShakespeareanQuoteInput } from '@/ai/f
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
+import { cn } from '@/lib/utils'; // Import cn
 
 interface ShakespeareanQuoteDisplayProps {
   celebrantName: string;
@@ -22,6 +23,14 @@ export function ShakespeareanQuoteDisplay({ celebrantName, className }: Shakespe
     let isMounted = true; // Flag to prevent state update on unmounted component
 
     async function fetchQuote() {
+      if (!celebrantName) {
+         if (isMounted) {
+           setError('Cannot generate quote without a name.');
+           setIsLoading(false);
+         }
+         return;
+      }
+
       setIsLoading(true);
       setError(null);
       try {
@@ -74,10 +83,16 @@ export function ShakespeareanQuoteDisplay({ celebrantName, className }: Shakespe
   }
 
   return (
-    <blockquote className={className}>
+    <blockquote
+      className={cn(
+        'transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:shadow-md cursor-default', // Added hover effect, transition, and cursor
+        className
+      )}
+    >
       <p className="text-lg italic text-secondary leading-relaxed mb-2">
         &ldquo;{quote}&rdquo;
       </p>
+      {/* Updated footer */}
       <footer className="text-sm text-muted-foreground">- The Bard (inspired by {celebrantName})</footer>
     </blockquote>
   );

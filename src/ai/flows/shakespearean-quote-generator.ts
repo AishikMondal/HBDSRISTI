@@ -18,7 +18,7 @@ const ShakespeareanQuoteInputSchema = z.object({
 export type ShakespeareanQuoteInput = z.infer<typeof ShakespeareanQuoteInputSchema>;
 
 const ShakespeareanQuoteOutputSchema = z.object({
-  quote: z.string().describe('A romantic Shakespearean-style quote related to love and birthdays, personalized for the celebrant.'),
+  quote: z.string().describe('A Shakespearean-style quote expressing admiration and birthday wishes, personalized for the celebrant.'),
 });
 export type ShakespeareanQuoteOutput = z.infer<typeof ShakespeareanQuoteOutputSchema>;
 
@@ -35,10 +35,11 @@ const prompt = ai.definePrompt({
   },
   output: {
     schema: z.object({
-      quote: z.string().describe('A romantic Shakespearean-style quote related to love and birthdays, personalized for the celebrant.'),
+      quote: z.string().describe('A Shakespearean-style quote expressing admiration and birthday wishes, personalized for the celebrant.'),
     }),
   },
-  prompt: `Compose a romantic Shakespearean-style quote related to love and birthdays, personalized for {{celebrantName}}. The quote should sound like it was written by Shakespeare and should be suitable for a birthday message to express love and admiration.`,
+  // Updated prompt for more subtlety, focusing on admiration and well wishes
+  prompt: `Compose a Shakespearean-style quote expressing admiration and wishing a happy birthday to {{celebrantName}}. The quote should sound like it was written by Shakespeare, focusing on appreciation of their qualities and wishing them joy on their birthday, rather than overt romance.`,
 });
 
 const generateShakespeareanQuoteFlow = ai.defineFlow<

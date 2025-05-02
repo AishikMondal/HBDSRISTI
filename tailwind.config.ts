@@ -89,11 +89,23 @@ export default {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+         // Add sparkle and pulse animations here if not using globals.css
+        sparkle: {
+          '0%, 100%': { opacity: '0', transform: 'scale(0.5) translateY(0)' },
+          '50%': { opacity: '0.7', transform: 'scale(1) translateY(-20px)' },
+        },
+        'subtle-pulse': {
+            '0%, 100%': { opacity: '0.8' },
+            '50%': { opacity: '1' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 1s ease-out forwards', // Added fade-in animation
+         // Add sparkle and pulse animations here if not using globals.css
+        sparkle: 'sparkle 5s infinite ease-in-out',
+        'subtle-pulse': 'subtle-pulse 15s infinite ease-in-out',
   		}
   	}
   },

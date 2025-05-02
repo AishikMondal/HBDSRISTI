@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { BookOpen, Heart, X } from 'lucide-react';
+import { cn } from '@/lib/utils'; // Import cn
 
 interface AnimatedLetterModalProps {
   triggerButtonText: string;
@@ -36,14 +37,26 @@ export function AnimatedLetterModal({
   }, []);
 
   if (!isMounted) {
-    return null; // Don't render Dialog on the server
+    // Render a placeholder or the button directly to avoid layout shift
+    return (
+       <Button
+        className="bg-gradient-to-r from-gold to-rose-gold text-primary-foreground hover:opacity-90 transition-all duration-300 shadow-md flex items-center gap-2 group hover:shadow-lg hover:brightness-110"
+        disabled // Disable button server-side initially
+      >
+        <BookOpen />
+        {triggerButtonText}
+      </Button>
+    );
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <Button
         onClick={() => setIsOpen(true)}
-        className="bg-gradient-to-r from-gold to-rose-gold text-primary-foreground hover:opacity-90 transition-opacity duration-300 shadow-md flex items-center gap-2 group"
+        className={cn(
+            "bg-gradient-to-r from-gold to-rose-gold text-primary-foreground transition-all duration-300 shadow-md flex items-center gap-2 group",
+            "hover:opacity-95 hover:shadow-lg hover:brightness-110" // Enhanced hover effect
+        )}
       >
         <BookOpen className="group-hover:scale-110 transition-transform duration-300" />
         {triggerButtonText}
@@ -64,7 +77,8 @@ export function AnimatedLetterModal({
               </DialogDescription>
             </DialogHeader>
             <ScrollArea className="h-[40vh] md:h-[50vh] pr-4">
-              <div className="prose prose-invert max-w-none text-foreground leading-relaxed text-base">
+              {/* Ensure prose styles work well in dark mode if not already covered */}
+              <div className="prose dark:prose-invert max-w-none text-foreground leading-relaxed text-base">
                 {letterContent}
               </div>
             </ScrollArea>
