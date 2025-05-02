@@ -5,12 +5,13 @@ import { ShakespeareanQuoteDisplay } from '@/components/shakespearean-quote-disp
 import { Separator } from '@/components/ui/separator';
 import { QuillIcon } from '@/components/icons/quill-icon';
 
-// Configuration - Replace with actual data
-const CELEBRANT_NAME = "Your Crush's Name"; // IMPORTANT: Replace this!
-const CELEBRANT_IMAGE_URL = "https://picsum.photos/300/300"; // Replace with actual image URL
+// Configuration - Updated
+const CELEBRANT_NAME = "Sristi"; // Updated name
+const CELEBRANT_IMAGE_URL = "https://picsum.photos/300/300"; // Replace with actual image URL if desired
 const LETTER_TITLE = `A Chapter For You, ${CELEBRANT_NAME}`;
 const LETTER_TRIGGER_TEXT = "Read My Letter";
 
+// Refined Letter Content for Subtlety
 const LetterContent = () => (
   <>
     <p className="mb-4">My Dearest {CELEBRANT_NAME},</p>
@@ -20,21 +21,21 @@ const LetterContent = () => (
       Happy Birthday! 🎉
     </p>
     <p className="mb-4">
-      Knowing you feels like discovering a classic novel, one filled with unexpected twists,
-      profound wisdom, and moments that take my breath away. Your presence adds such vibrant
-      color and depth to the world around you (and certainly to mine!).
+      Getting to know you has been like discovering a favorite novel, one filled with unexpected wisdom,
+      captivating moments, and a perspective that makes me see things differently. Your presence adds such a
+      unique and wonderful dimension to the world.
     </p>
     <p className="mb-4">
-      I admire [mention a specific quality you admire - e.g., your passion for stories, your kind heart, your brilliant mind] immensely.
-      It's truly inspiring to see [mention something specific they do or achieve].
+      I truly admire your unique perspective on things and how you approach challenges with such grace.
+      It's genuinely inspiring to witness.
     </p>
     <p className="mb-4">
-      May this new chapter be your most exciting one yet, filled with joy, adventure, love,
+      May this new chapter be your most fulfilling one yet, filled with joy, adventure, wonderful discoveries,
       and all the beautiful narratives you deserve. May your story continue to unfold with
       grace and wonder.
     </p>
-    <p>With deepest affection and warmest wishes,</p>
-    <p>[Your Name]</p>
+    <p>With warmest thoughts,</p>
+    <p>[Your Name] {/* Or leave this out for more mystery */}</p>
   </>
 );
 

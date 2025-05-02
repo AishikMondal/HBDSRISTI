@@ -50,7 +50,7 @@ body {
     /* Dark Theme - Deep Blues/Blacks, Gold/Rose Gold, Muted Purple */
     --background: 224 71% 4%; /* Deep Blue/Black */
     --foreground: 210 40% 98%; /* Soft White */
-    --card: 224 71% 6%; /* Slightly Lighter Dark Blue */
+    --card: 224 71% 8%; /* Slightly Lighter Dark Blue - Adjusted for gradient */
     --card-foreground: 210 40% 98%;
     --popover: 224 71% 4%; /* Deep Blue/Black */
     --popover-foreground: 210 40% 98%;
@@ -91,5 +91,8 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* Subtle background gradient for dark mode */
+    @apply dark:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] dark:from-background dark:to-zinc-950;
+    background-attachment: fixed; /* Keep gradient fixed during scroll */
   }
 }
