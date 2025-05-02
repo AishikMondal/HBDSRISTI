@@ -35,13 +35,13 @@ const LetterContent = () => (
       happiness and wonder.
     </p>
     <p>With warmest thoughts,</p>
-    <p>[Your Name] {/* Or leave this out for more mystery */}</p>
+    <p>Aishik</p> {/* Updated name */}
   </>
 );
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center text-center space-y-8 md:space-y-12 animate-fade-in">
+    <div className="flex flex-col items-center text-center space-y-8 md:space-y-12 animate-fade-in"> {/* Added fade-in animation */}
       <header className="space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gold to-rose-gold font-serif cursor-default transition-all duration-300 hover:tracking-wider"> {/* Added hover effect */}
           Happy Birthday, {CELEBRANT_NAME}!
